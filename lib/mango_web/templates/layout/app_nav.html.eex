@@ -11,11 +11,10 @@
       <img src="/images/logo.png"/> Mango </a>
     </div>
     <div class="collapse navbar-collapse" id="primary-nav">
-      <ul class="nav navbar-nav"> 
-        <li>
-          <a href="">Link</a>
-        </li>
-      </ul> 
+      <ul class="nav navbar-nav">
+        <li><%= link "Fruits", to: category_path(@conn, :show, "fruits") %></li>
+        <li><%= link "Vegetables", to: category_path(@conn, :show, "vegetables") %></li>
+      </ul>
     </div>
   </div>
 </nav>
