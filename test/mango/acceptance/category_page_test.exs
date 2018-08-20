@@ -14,8 +14,6 @@ defmodule MangoWeb.Acceptance.CategoryPageTest do
 
   test "show fruits" do
     navigate_to("/categories/fruits")
-    page_title = find_element(:css, ".page-title") |> visible_text()
-    assert page_title = "Fruits" 
 
     product = find_element(:css, ".product")
     product_name = find_within_element(product, :css, ".product-name") |> visible_text()
