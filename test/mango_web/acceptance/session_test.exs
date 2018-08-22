@@ -18,7 +18,7 @@ defmodule MangoWeb.Acceptance.SessionTest do
   end
 
   test "successful login for valid credential" do
-    navigate_to("login")
+    navigate_to("/login")
 
     form = find_element(:id, "session-form")
     find_within_element(form, :name, "session[email]")
@@ -43,7 +43,7 @@ defmodule MangoWeb.Acceptance.SessionTest do
     find_within_element(form, :tag, "button")
     |> click
 
-    assert current_path() == "login"
+    assert current_path() == "/login"
     message = find_element(:class, "alert-danger") |> visible_text()
     assert message == "Invalid username/ password combination"
   end
