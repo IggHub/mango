@@ -27,4 +27,6 @@ defmodule Mango.CRM do
         :error
     end
   end
+  
+  def get_customer(id), do: Repo.get(Customer, id)
 end
