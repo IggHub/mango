@@ -1,6 +1,7 @@
 defmodule MangoWeb.CartController do
   use MangoWeb, :controller
   alias Mango.Sales
+  # require IEx
 
   def add(conn, %{"cart" => cart_params}) do
     cart = conn.assigns.cart
@@ -32,5 +33,11 @@ defmodule MangoWeb.CartController do
         |> put_flash(:info, "Error updating cart")
         |> redirect(to: cart_path(conn, :show))
     end
+  end
+
+  def orders(conn, _params) do
+    historical_orders = Sales.get_all_order
+    conn
+    |> render("orders.html", historical_orders: historical_orders)
   end
 end
