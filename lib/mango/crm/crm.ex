@@ -80,40 +80,6 @@ defmodule Mango.CRM do
   end
 
   @doc """
-  Updates a ticket.
-
-  ## Examples
-
-      iex> update_ticket(ticket, %{field: new_value})
-      {:ok, %Ticket{}}
-
-      iex> update_ticket(ticket, %{field: bad_value})
-      {:error, %Ecto.Changeset{}}
-
-  """
-  def update_ticket(%Ticket{} = ticket, attrs) do
-    ticket
-    |> Ticket.changeset(attrs)
-    |> Repo.update()
-  end
-
-  @doc """
-  Deletes a Ticket.
-
-  ## Examples
-
-      iex> delete_ticket(ticket)
-      {:ok, %Ticket{}}
-
-      iex> delete_ticket(ticket)
-      {:error, %Ecto.Changeset{}}
-
-  """
-  def delete_ticket(%Ticket{} = ticket) do
-    Repo.delete(ticket)
-  end
-
-  @doc """
   Returns an `%Ecto.Changeset{}` for tracking ticket changes.
 
   ## Examples
