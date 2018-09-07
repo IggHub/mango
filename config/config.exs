@@ -5,6 +5,8 @@
 # is restricted to this project.
 use Mix.Config
 
+config :mango, MangoWeb.GetText,
+  default_locale: "fr"
 # General application configuration
 config :mango,
   ecto_repos: [Mango.Repo]
