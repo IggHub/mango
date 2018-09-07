@@ -44,7 +44,7 @@ defmodule MangoWeb.Acceptance.OrderTest do
     navigate_to("/orders")
 
     # assert /orders page
-    historical_order = find_element(:css, ".historical-order") |> visible_text()
+    historical_order = find_element(:css, ".order-header") |> visible_text()
     assert historical_order == "Order History" 
   end
 end

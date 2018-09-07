@@ -1,7 +1,8 @@
+<p>TBC</p>
 <h1>Orders</h1>
 
 <div class="historical-order">
-  <h2>Order History</h2>
+  <h2 class="order-header">Order History</h2>
   <%= Enum.each @historical_orders, fn order -> %>
     <li><%= order.id %></li>
   <% end %>
