@@ -18,6 +18,9 @@ defmodule MangoWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :admin do
+    plug MangoWeb.Plugs.AdminLayout
+  end
   scope "/", MangoWeb do
     pipe_through [:browser, :frontend]
 
@@ -45,7 +48,7 @@ defmodule MangoWeb.Router do
   end
 
   scope "/admin", MangoWeb.Admin, as: :admin do
-    pipe_through [:browser, :frontend]
+    pipe_through [:browser, :admin]
 
     resources "/users", UserController
   end
