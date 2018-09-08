@@ -1,4 +1,4 @@
-s file is a PO Template file.
+## This file is a PO Template file.
 ##
 ## `msgid`s here are often extracted from source code.
 ## Add new translations manually only if they're dynamic
