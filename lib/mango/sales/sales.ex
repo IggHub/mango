@@ -1,6 +1,17 @@
 defmodule Mango.Sales do
   alias Mango.Repo
   alias Mango.Sales.Order
+  import Ecto.Query
+
+  def list_orders do
+    Order
+    |> where([o], o.status != "In Cart")
+    |> Repo.all
+  end
+
+  def get_order!(id), do: Repo.get!(Order, id)
+
+  def get_order(id), do: Repo.get(Order, id)
 
   def get_all_order do
     Order
