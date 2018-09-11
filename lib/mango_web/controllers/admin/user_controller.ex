@@ -1,4 +1,3 @@
-
 defmodule MangoWeb.Admin.UserController do
   use MangoWeb, :controller
 
