@@ -1,7 +1,7 @@
 defmodule MangoWeb.Plugs.LoadAdmin do
   import Plug.Conn
   alias Mango.Administration
- 
+
   def init(_opts), do: nil
 
   def call(conn, _opts) do
