@@ -1,5 +1,6 @@
-<h1>New Supplier</h1>
+<h2>New Supplier</h2>
 
-<%= render "form.html", Map.put(assigns, :action, Routes.admin_supplier_path(@conn, :create)) %>
+<%= render "form.html", changeset: @changeset,
+                        action: admin_supplier_path(@conn, :create) %>
 
-<span><%= link "Back", to: Routes.admin_supplier_path(@conn, :index) %></span>
+<span><%= link "Back", to: admin_supplier_path(@conn, :index) %></span>

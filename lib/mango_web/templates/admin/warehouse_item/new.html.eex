@@ -1,5 +1,6 @@
-<h1>New Warehouse item</h1>
+<h2>New Ware house item</h2>
 
-<%= render "form.html", Map.put(assigns, :action, Routes.admin_warehouse_item_path(@conn, :create)) %>
+<%= render "form.html", changeset: @changeset,
+                        action: admin_warehouse_item_path(@conn, :create) %>
 
-<span><%= link "Back", to: Routes.admin_warehouse_item_path(@conn, :index) %></span>
+<span><%= link "Back", to: admin_warehouse_item_path(@conn, :index) %></span>

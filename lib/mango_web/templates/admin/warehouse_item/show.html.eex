@@ -1,4 +1,4 @@
-<h1>Show Warehouse item</h1>
+<h2>Show Ware house item</h2>
 
 <ul>
 
@@ -19,5 +19,5 @@
 
 </ul>
 
-<span><%= link "Edit", to: Routes.admin_warehouse_item_path(@conn, :edit, @warehouse_item) %></span>
-<span><%= link "Back", to: Routes.admin_warehouse_item_path(@conn, :index) %></span>
+<span><%= link "Edit", to: admin_warehouse_item_path(@conn, :edit, @warehouse_item) %></span>
+<span><%= link "Back", to: admin_warehouse_item_path(@conn, :index) %></span>

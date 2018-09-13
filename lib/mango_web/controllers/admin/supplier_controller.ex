@@ -2,7 +2,6 @@ defmodule MangoWeb.Admin.SupplierController do
   use MangoWeb, :controller
 
   alias Mango.Warehouse
-  alias Mango.Warehouse.Supplier
 
   def index(conn, _params) do
     suppliers = Warehouse.list_suppliers()
@@ -10,7 +9,7 @@ defmodule MangoWeb.Admin.SupplierController do
   end
 
   def new(conn, _params) do
-    changeset = Warehouse.change_supplier(%Supplier{})
+    changeset = Warehouse.change_supplier(%Mango.Warehouse.Supplier{})
     render(conn, "new.html", changeset: changeset)
   end
 
@@ -19,7 +18,7 @@ defmodule MangoWeb.Admin.SupplierController do
       {:ok, supplier} ->
         conn
         |> put_flash(:info, "Supplier created successfully.")
-        |> redirect(to: Routes.admin_supplier_path(conn, :show, supplier))
+        |> redirect(to: admin_supplier_path(conn, :show, supplier))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
@@ -43,7 +42,7 @@ defmodule MangoWeb.Admin.SupplierController do
       {:ok, supplier} ->
         conn
         |> put_flash(:info, "Supplier updated successfully.")
-        |> redirect(to: Routes.admin_supplier_path(conn, :show, supplier))
+        |> redirect(to: admin_supplier_path(conn, :show, supplier))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", supplier: supplier, changeset: changeset)
     end
@@ -55,6 +54,6 @@ defmodule MangoWeb.Admin.SupplierController do
 
     conn
     |> put_flash(:info, "Supplier deleted successfully.")
-    |> redirect(to: Routes.admin_supplier_path(conn, :index))
+    |> redirect(to: admin_supplier_path(conn, :index))
   end
 end

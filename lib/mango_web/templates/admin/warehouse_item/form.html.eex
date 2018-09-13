@@ -5,19 +5,25 @@
     </div>
   <% end %>
 
-  <%= label f, :sku, class: "control-label" %>
-  <%= text_input f, :sku, class: "form-control" %>
-  <%= error_tag f, :sku %>
+  <div class="form-group">
+    <%= label f, :sku, class: "control-label" %>
+    <%= text_input f, :sku, class: "form-control" %>
+    <%= error_tag f, :sku %>
+  </div>
 
-  <%= label f, :price, class: "control-label" %>
-  <%= number_input f, :price, step: "any", class: "form-control" %>
-  <%= error_tag f, :price %>
+  <div class="form-group">
+    <%= label f, :price, class: "control-label" %>
+    <%= number_input f, :price, step: "any", class: "form-control" %>
+    <%= error_tag f, :price %>
+  </div>
 
-  <%= label f, :stock_quantity, class: "control-label" %>
-  <%= number_input f, :stock_quantity, class: "form-control" %>
-  <%= error_tag f, :stock_quantity %>
+  <div class="form-group">
+    <%= label f, :stock_quantity, class: "control-label" %>
+    <%= number_input f, :stock_quantity, class: "form-control" %>
+    <%= error_tag f, :stock_quantity %>
+  </div>
 
-  <div>
-    <%= submit "Save" %>
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>

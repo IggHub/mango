@@ -1,4 +1,4 @@
-<h2>Edit Warehouse item</h2>
+<h2>Edit Ware house item</h2>
 
 <%= render "form.html", changeset: @changeset,
                         action: admin_warehouse_item_path(@conn, :update, @warehouse_item) %>
