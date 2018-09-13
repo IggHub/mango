@@ -66,5 +66,6 @@ defmodule MangoWeb.Router do
     resources "/warehouse_items", WarehouseItemController
     resources "/suppliers", SupplierController
     get "/logout", SessionController, :delete
+    get "/", DashboardController, :show
   end
 end
