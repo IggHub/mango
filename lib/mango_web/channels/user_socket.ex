@@ -3,6 +3,7 @@ defmodule MangoWeb.UserSocket do
 
   ## Channels
   # channel "room:*", MangoWeb.RoomChannel
+  channel "pos", MangoWeb.BotChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
