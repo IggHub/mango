@@ -12,7 +12,6 @@ channel.join()
 
 
 channel.on('message:new', payload => {
-  console.log('payload:', payload)
   renderMessage(payload, "MangoRobot")
 })
 
@@ -28,5 +27,23 @@ let renderMessage = (payload, user) => {
     </div>`
   chatMessages.append(template);
 }
+
+let input = $('.chat-input > input')
+input.on('keypress', event => {
+  if(event.keyCode == 13) {
+    let message = input.val();
+    let command_regex = /^\/(\w+)\s*([\w\s]*)/g
+    let parts = command_regex.exec(message)
+
+    renderMessage({message: message}, "You")
+    input.val("")
+
+    channel.push(parts[1], { message: parts[2] }).receive(
+       "ok", (reply) => renderMessage(reply, "Mango")
+     ).receive(
+       "error", (reply) => renderMessage(reply, "Mango")
+      )
+  }
+});
 
 export default socket
