@@ -15,6 +15,13 @@ defmodule MangoWeb.BotChannel do
     {:reply, {:ok, reply}, socket}
   end
 
+  def handle_in("new", _, socket) do
+    order = Sales.create_cart()
+    new_socket = socket |> assign(:order, order)
+    reply = %{message: "New Order in progress: ##{order.id}"}
+    {:reply, {:ok, reply}, new_socket}
+  end
+
   def handle_in(_, _payload, socket) do
     reply = %{ message: "I don't understand your question." }
     {:reply, {:error, reply}, socket}
