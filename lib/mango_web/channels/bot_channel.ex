@@ -1,5 +1,6 @@
 defmodule MangoWeb.BotChannel do
   use MangoWeb, :channel
+  alias Mango.Sales
 
   def join("pos", payload, socket) do
     welcome_text = "Hello! Welcome to Mango Point of Sale"
@@ -7,7 +8,10 @@ defmodule MangoWeb.BotChannel do
   end
 
   def handle_in("status", payload, socket) do
-    reply = %{ message: "You asked for status" }
+    reply = case Sales.get_order(payload["message"]) do
+      nil -> %{message: "Order not found"}
+      order -> %{message: "Status: #{order.status}"}
+    end
     {:reply, {:ok, reply}, socket}
   end
 
