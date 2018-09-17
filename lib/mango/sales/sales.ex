@@ -59,4 +59,10 @@ defmodule Mango.Sales do
     |> Order.checkout_changeset(attrs)
     |> Repo.update()
   end
+
+  def pos_sale_complete(%Order{} = order) do
+    order
+    |> Order.changeset(%{"status" => "POS Sale"})
+    |> Repo.update()
+  end
 end
